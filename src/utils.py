@@ -1,3 +1,5 @@
+# functionality used in the entire code
+
 import os
 import sys
 

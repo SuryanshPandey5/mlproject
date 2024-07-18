@@ -1,3 +1,5 @@
+# for reading the data
+
 import os
 import sys
 from src.exception import CustomException
