@@ -1,4 +1,4 @@
-# for transformstion - label eending, categorical fratures to numeric
+# for transformstion - label encoding, categorical fratures to numeric
 
 import sys
 from dataclasses import dataclass
@@ -16,7 +16,7 @@ import os
 
 from src.utils import save_object
 
-@dataclass
+@dataclass #directly define class variable no need of __init__
 class DataTransformationConfig:
     preprocessor_obj_file_path=os.path.join('artifacts',"proprocessor.pkl")
 
@@ -103,9 +103,7 @@ class DataTransformation:
             input_feature_train_arr=preprocessing_obj.fit_transform(input_feature_train_df)
             input_feature_test_arr=preprocessing_obj.transform(input_feature_test_df)
 
-            train_arr = np.c_[
-                input_feature_train_arr, np.array(target_feature_train_df)
-            ]
+            train_arr = np.c_[input_feature_train_arr, np.array(target_feature_train_df)]
             test_arr = np.c_[input_feature_test_arr, np.array(target_feature_test_df)]
 
             logging.info(f"Saved preprocessing object.")
